@@ -1,0 +1,57 @@
+{
+  "name": "good-kind-c_cpp_with_sergey-balakirev",
+  "version": "0.1.0",
+  "description": "My tasks solutions of the course \"Good, kind C/C++ with Sergey Balakirev\"",
+  "main": "main.cpp",
+  "type": "module",
+  "scripts": {
+    "lint": "npx eslint ./src --ignore-path ./configs/eslint/.eslintignore --config ./configs/eslint/.eslintrc.cjs",
+    "lint:fix": "npx eslint ./src --ignore-path ./configs/eslint/.eslintignore --config ./configs/eslint/.eslintrc.cjs --fix",
+    "prettier": "npx prettier ./src --check --ignore-path ./configs/prettier/.prettierignore --config ./configs/prettier/prettier.config.js",
+    "prettier:fix": "npx prettier ./src --write --ignore-path ./configs/prettier/.prettierignore --config ./configs/prettier/prettier.config.js",
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "prepare": "husky",
+    "update:packages": "node ./configs/execa/main.js"
+  },
+  "keywords": [
+    "eslint",
+    "prettier",
+    "husky",
+    "commitlint",
+    "pre-commit",
+    "commit-msg",
+    "execa",
+    "c",
+    "c++",
+    "g++",
+    "gcc",
+    "gdb",
+    "clang",
+    "clang++",
+    "LLVM",
+    "clang-tidy",
+    "clang-format",
+    "clangd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriy-Frostoff/good-kind-C_CPP_with_Sergey-Balakirev.git"
+  },
+  "author": "Dmitriy Frostoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dmitriy-Frostoff/good-kind-C_CPP_with_Sergey-Balakirev/issues"
+  },
+  "homepage": "https://github.com/Dmitriy-Frostoff/good-kind-C_CPP_with_Sergey-Balakirev#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "execa": "^9.6.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
+  }
+}
