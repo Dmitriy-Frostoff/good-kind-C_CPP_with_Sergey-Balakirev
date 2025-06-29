@@ -7,6 +7,7 @@
  * result in the integer variable 'res'.
  *
  */
+
 int main(void) {
   double test_var;
   int res = sizeof(test_var);
