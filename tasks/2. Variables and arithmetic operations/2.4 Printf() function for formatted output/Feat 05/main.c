@@ -1,6 +1,11 @@
 /**
  * The task description is at
  * @link{https://stepik.org/lesson/1191247/step/7?thread=solutions&unit=1204218}
+ *
+ * The program must use the 'printf()' function to print all declared variables
+ * (in the order they are declared) in one line separated by a space. Print the
+ * real number to the nearest ten thousandths (4 decimal places).
+ *
  */
 #include <stdio.h>
 
