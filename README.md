@@ -26,8 +26,8 @@ Linting and formatting are based on custom made `Mozilla` code styles guide with
 ### Stack
 
 <div>
-    <img src="https://img.shields.io/badge/-C-%23090909?style=for-the-badge&logo=C&logoColor=blue" height="24" alt="C badge">
-    <img src="https://img.shields.io/badge/-c++-%23090909?style=for-the-badge&logo=c&logoColor=blue" height="24" alt="c++ badge">
+    <img src="https://img.shields.io/badge/-C-%23090909?style=for-the-badge&logo=C&logoColor=0078D4" height="24" alt="C badge">
+    <img src="https://img.shields.io/badge/-c++-%23090909?style=for-the-badge&logo=c&logoColor=0078D4" height="24" alt="c++ badge">
     <img src="https://img.shields.io/badge/-clang--tidy-%23090909?style=for-the-badge&logo=clang-tidy" height="24" alt="clang-tidy badge">
     <img src="https://img.shields.io/badge/-clang--format-%23090909?style=for-the-badge&logo=clang-format" height="24" alt="Clang-format badge">
     <img src="https://img.shields.io/badge/-mozilla--custom-%23090909?style=for-the-badge&logo=mozilla--custom" height="24" alt="mozilla-custom badge">
