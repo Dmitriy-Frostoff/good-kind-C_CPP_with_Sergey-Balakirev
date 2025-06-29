@@ -1,6 +1,6 @@
 /**
  * The task description is at
- * @link{https://stepik.org/lesson/1191249/step/11?thread=solutions&unit=1204220}
+ * @link{https://stepik.org/lesson/1191249/step/11?unit=1204220}
  *
  */
 #include <stdio.h>
