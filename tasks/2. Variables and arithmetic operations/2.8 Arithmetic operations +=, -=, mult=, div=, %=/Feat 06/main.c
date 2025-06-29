@@ -9,7 +9,7 @@
 int main(void) {
   int price;
   int discount;
-  float total;
+  double total;
 
   scanf("%d %d", &price, &discount);
 
