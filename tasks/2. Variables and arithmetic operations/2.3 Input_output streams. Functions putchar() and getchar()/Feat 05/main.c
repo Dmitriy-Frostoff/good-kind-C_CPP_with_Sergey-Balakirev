@@ -1,16 +1,16 @@
 /**
  * The task description is at
- * @link{https://stepik.org/lesson/1191245/step/7?unit=1204216}
+ * @link{https://stepik.org/lesson/1191247/step/4?unit=1204218}
  */
 #include <stdio.h>
 
 int main(void) {
-  int char0 = getchar();
-  int char1 = getchar();
-  int char2 = getchar();
-  putchar(char2);
-  putchar(char1);
-  putchar(char0);
+  char ch = 'u';
+  short sh = -55;
+  int var_i = 1024;
+  double var_d = 3.1415;
+
+  printf("%c %d %d %f", ch, sh, var_i, var_d);
 
   return 0;
 }
