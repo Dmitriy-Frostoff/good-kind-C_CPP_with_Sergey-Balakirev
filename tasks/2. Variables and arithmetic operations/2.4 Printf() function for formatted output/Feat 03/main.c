@@ -1,6 +1,12 @@
 /**
  * The task description is at
  * @link{https://stepik.org/lesson/1191247/step/5?unit=1204218}
+ *
+ * The program should output all declared variables (in the order of their
+ * declaration) from a new line. However, there should be no gaps in the output.
+ * Use the 'printf()' function for this formatted output. A symbolic variable
+ * must be output as a real character with no precision limit.
+ *
  */
 #include <stdio.h>
 
