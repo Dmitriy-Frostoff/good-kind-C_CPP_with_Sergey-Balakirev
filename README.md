@@ -10,7 +10,7 @@
 
 ---
 
-### The only author, owner and maintainer of the course is **Sergey Balakirev and team**
+### The only author, owner and maintainer of the course are **Sergey Balakirev and team**
 
 ---
 
