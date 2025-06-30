@@ -8,9 +8,9 @@
 #include <stdio.h>
 
 int main(void) {
-  int b1;    // первый член прогрессии
-  int q;     // знаменатель прогрессии
-  int n = 4; // кол-во членов прогрессии
+  int b1;    // the first progression member
+  int q;     // the denominator of the progression
+  int n = 4; // quantity of progression members
 
   scanf("%d, %d", &b1, &q);
 
