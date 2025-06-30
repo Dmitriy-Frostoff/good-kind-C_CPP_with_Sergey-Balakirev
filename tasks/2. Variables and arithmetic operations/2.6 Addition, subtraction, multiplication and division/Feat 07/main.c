@@ -7,8 +7,8 @@
 #include <stdio.h>
 
 int main(void) {
-  int a1;  // первый член прогрессии
-  int a50; // 50-й член прогрессии
+  int a1;  // the first progression member
+  int a50; // 50-th progression member
   int maxProgressionValue = 50;
 
   scanf("%d, %d", &a1, &a50);
