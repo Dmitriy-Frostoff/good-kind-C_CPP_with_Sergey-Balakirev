@@ -1,0 +1,19 @@
+test #1
+input: 3 4 5
+output: yes
+
+test #2
+input: 1 7 3
+output: no
+
+test #3
+input: 56 32 33
+output: yes
+
+test #4
+input: 100 4 10
+output: no
+
+test #5
+input: 2 5 7
+output: no
