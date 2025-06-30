@@ -7,9 +7,9 @@
 #include <stdio.h>
 
 int main(void) {
-  unsigned short time_h = 10; // часы
-  unsigned short time_m = 33; // минуты
-  unsigned short time_s = 5;  // секунды
+  unsigned short time_h = 10; // hours
+  unsigned short time_m = 33; // minutes
+  unsigned short time_s = 5;  // seconds
 
   // increased time's values
   unsigned short time_h_summed;
@@ -17,7 +17,7 @@ int main(void) {
   unsigned short time_s_summed;
   unsigned short time_sec_total;
 
-  // добавляемое время: h - часы; m - минуты; s - секунды
+  // add time: h - hours; m - minutes; s - seconds
   unsigned short h;
   unsigned short m;
   unsigned short s;
