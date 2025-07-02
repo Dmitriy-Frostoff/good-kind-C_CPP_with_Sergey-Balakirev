@@ -2,6 +2,15 @@
  * The task description is at
  * @link{https://stepik.org/lesson/1191291/step/11?unit=1204279}
  *
+ * Declare two arrays with names 'ar_1' and 'ar_2' containing elements of type
+ * int. The length of array 'ar_1' must be equal to TOTAL, and array 'ar_2' must
+ * be twice as long (TOTAL * 2).
+ *
+ * Then read five integers separated by a space from
+ * the INPUT: into the 'ar_1' value array (in order, starting from 'ar_1'[0]).
+ * After that, copy the values of the 'ar_1' array to the 'ar_2 array'. The
+ * remaining elements of the 'ar_2' array must take the value -1.
+ *
  */
 
 #include <stdio.h>
