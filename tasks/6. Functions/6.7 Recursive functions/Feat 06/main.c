@@ -14,7 +14,7 @@ int main(void) {
 
   // latin letters and symbols and their corresponding Morze symbols
   const char ALPHABET_LETTERS[] = " 0123456789abcdefghijklmnopqrstuvwxyz";
-  size_t ALPHABET_LETTERS_LENGTH = sizeof(ALPHABET_LETTERS);
+  size_t ALPHABET_LETTERS_LENGTH = strlen(ALPHABET_LETTERS);
   const char *MORZE_SYMBOLS[] = {
       "-...-", "-----", ".----", "..---", "...--", "....-", ".....", "-....",
       "--...", "---..", "----.", ".-",    "-...",  "-.-.",  "-..",   ".",
