@@ -5,8 +5,7 @@
  */
 
 #include "./config.h"
-
-int is_positive(int num);
+#include "./utils.h"
 
 int main(void) {
   int x;
