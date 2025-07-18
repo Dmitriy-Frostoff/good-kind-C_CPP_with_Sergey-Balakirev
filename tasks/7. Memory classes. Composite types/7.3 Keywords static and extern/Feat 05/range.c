@@ -30,7 +30,7 @@ int range(int start, int stop, int step) {
   static int step_base = 0;
 
   // turn on coroutine params at first call
-  if (start_base == 0 || stop_base == 0 || step_base == 0) {
+  if (start_base == 0 && stop_base == 0 && step_base == 0) {
     start_base += start;
     stop_base += stop;
     step_base += step;
