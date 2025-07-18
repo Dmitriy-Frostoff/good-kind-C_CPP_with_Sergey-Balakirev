@@ -1,6 +1,6 @@
 /**
  * The task description is at
- * @link{https://stepik.org/lesson/1191311/step/7?unit=1204299}
+ * @link{https://stepik.org/lesson/1191311/step/8?unit=1204299}
  *
  */
 
