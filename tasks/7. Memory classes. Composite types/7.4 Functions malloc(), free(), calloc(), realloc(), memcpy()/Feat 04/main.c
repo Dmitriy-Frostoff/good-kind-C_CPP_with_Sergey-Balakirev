@@ -21,6 +21,11 @@ int main(void) {
   // allocate memory area
   short *data = malloc(4 * sizeof(short));
 
+  // check pointer
+  if (data == NULL) {
+    return 1;
+  }
+
   // nest to the allocated memory values: -4, 3, 0, 100
   data[0] = -4;
   data[1] = 3;
