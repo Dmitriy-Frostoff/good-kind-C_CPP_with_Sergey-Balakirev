@@ -12,7 +12,7 @@ int main(void) {
   int lengths[MAX_READ_NUM_QUANTITY] = {0};
   size_t arr_size = sizeof(lengths) / sizeof(*lengths);
 
-  // fill @link{lengths} with real numbers of @link{MAX_READ_NUM_QUANTITY} count
+  // fill @link{lengths} with integers of @link{MAX_READ_NUM_QUANTITY} count
   count = get_int_nums(lengths, arr_size, MAX_READ_NUM_QUANTITY);
 
   // allocate memory for @link{count} elems @type{int}

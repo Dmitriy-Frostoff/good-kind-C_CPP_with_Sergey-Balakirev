@@ -27,7 +27,7 @@ size_t get_int_nums(int arr[], const size_t SIZE_OF_ARR,
   size_t counter = 0;
   int num = 0;
 
-  while (scanf("%d", &num) == 1 && counter <= MAX_NUM_COUNT) {
+  while (scanf("%d", &num) == 1 && counter < MAX_NUM_COUNT) {
     arr[counter] = num;
     counter += 1;
   }
