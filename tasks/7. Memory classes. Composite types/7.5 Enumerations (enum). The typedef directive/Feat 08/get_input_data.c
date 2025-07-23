@@ -27,10 +27,10 @@
  */
 size_t get_input_data(NOTES arr[], size_t arr_size) {
   size_t count = 0;
-  unsigned char note = 0;
+  int note = 0;
 
   while (count < arr_size) {
-    if (scanf("%hhd", &note) != 1) {
+    if (scanf("%d", &note) != 1) {
       return count;
     }
 
