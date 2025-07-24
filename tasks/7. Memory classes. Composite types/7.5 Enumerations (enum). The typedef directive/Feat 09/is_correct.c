@@ -3,22 +3,29 @@
 /**
  *  @brief Clean up pointer to the allocated memory area
  *
+ *  @note ! Impure function! Modifies outer @link{ptr} !
  *  @note ! Only for allocated memory area pointers !
  *  @note ! free() and makes NULL outer @link{ptr} !
- *  @note Under the hood narrowing pointer to @type{char}
+ *  @note free() deals with @type{void *} no need to type narrowing
  *
- *  @param {void *} ptr - pointer to the allocated memory area
+ *  @param {char **} ptr - pointer to the allocated memory area
+ *    @note !!!under the hood pointer to the pointer is used!!! No other way!
+ *      if to set pointer like @type{void *} (i.e. clean_up(pointer))
+ *      @link{clean_up} function will modify only local copy of @link{ptr}
  *
  *  @example
  *    char *ptr = (char *)calloc(10, sizeof(char));
  *
- *    clean_up(ptr) => void
+ *    clean_up(&ptr) => void
  *    ptr{NULL}
+ *
  */
-static void clean_up(void *ptr) {
+static void clean_up(char **ptr) {
   // clean up
-  free((char *)ptr);
-  ptr = NULL;
+  // @note free() deals with void* so (char *) before @link{ptr} is useless
+  // e.g. free((char *)ptr) is useless
+  free(*ptr);
+  *ptr = NULL;
 }
 
 /**
@@ -103,11 +110,11 @@ int is_correct(const char *str) {
 
   // check that @link{ptr_str} contains "ra"
   if (strstr(ptr_str, "ra") != NULL) {
-    clean_up(ptr_str);
+    clean_up(&ptr_str);
     return 1;
   }
 
-  clean_up(ptr_str);
+  clean_up(&ptr_str);
 
   return 0;
 }

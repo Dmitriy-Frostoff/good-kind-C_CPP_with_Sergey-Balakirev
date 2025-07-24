@@ -1,4 +1,5 @@
 #include "./utils.h"
+#include "config.h"
 
 /**
  *  @brief Remove last '\n' char in the @link{str}
@@ -33,22 +34,29 @@ static void remove_last_word_n(char *str) {
 /**
  *  @brief Clean up pointer to the allocated memory area
  *
+ *  @note ! Impure function! Modifies outer @link{ptr} !
  *  @note ! Only for allocated memory area pointers !
  *  @note ! free() and makes NULL outer @link{ptr} !
- *  @note Under the hood narrowing pointer to @type{char}
+ *  @note free() deals with @type{void *} no need to type narrowing
  *
- *  @param {void *} ptr - pointer to the allocated memory area
+ *  @param {char **} ptr - pointer to the allocated memory area
+ *    @note !!!under the hood pointer to the pointer is used!!! No other way!
+ *      if to set pointer like @type{void *} (i.e. clean_up(pointer))
+ *      @link{clean_up} function will modify only local copy of @link{ptr}
  *
  *  @example
  *    char *ptr = (char *)calloc(10, sizeof(char));
  *
- *    clean_up(ptr) => void
+ *    clean_up(&ptr) => void
  *    ptr{NULL}
+ *
  */
-static void clean_up(void *ptr) {
+static void clean_up(char **ptr) {
   // clean up
-  free((char *)ptr);
-  ptr = NULL;
+  // @note free() deals with void* so (char *) before @link{ptr} is useless
+  // e.g. free((char *)ptr) is useless
+  free(*ptr);
+  *ptr = NULL;
 }
 
 /**
@@ -83,18 +91,17 @@ static int break_string_into_words(WORDS_ARR arr, char *ptr_string,
   int word_count = 0;
 
   // break string into words via ' ' separator
-  char *ptr_word = strtok(ptr_string, " ");
+  char *ptr_word = strtok(ptr_string, separator);
   size_t arr_index = 0;
 
   if (ptr_word == NULL) {
     puts(
         "Error(get_input_data() function): fail to split string into words via "
-        "space separator");
-    clean_up(ptr_string);
+        "current separator");
     return word_count;
   }
 
-  while (ptr_word != NULL) {
+  while (ptr_word != NULL && arr_index < WORDS_QUANTITY) {
     // safe copy param
     size_t copy_len =
         strlen(ptr_word) + 1 < WORD_LENGTH ? strlen(ptr_word) + 1 : WORD_LENGTH;
@@ -129,12 +136,13 @@ static int break_string_into_words(WORDS_ARR arr, char *ptr_string,
  *  @note Under the hood uses allocated memory area with clean ups after all
  *
  *  @param {WORDS_ARR} arr - 2d array for strings (i.e. char arr[20][50])
- *  @param {type} arr_size -
+ *  @param {size_t} arr_size - size of arr (qunatity of rows, e.g. 20)
  *  @param {char []} separator - string like separator, e.g. " ", ", " , ",;"
  *    (means that every ',' or ';' will be assumed as separator)
  *
  *  @return {int} - qunatity of got words after separation
  *  @throw if process of memory allocation has failed
+ *  @throw if empty string was produced (or something went wrong at INPUT: data)
  *
  *  @example
  *    arr of 20 words each of 50 chars max
@@ -155,11 +163,15 @@ int get_input_data(WORDS_ARR arr, size_t arr_size, char separator[]) {
 
   if (ptr_buffer == NULL) {
     puts("Error(get_input_data() function): fail to allocate memory area");
-    return 1;
+    return -1;
   }
 
   // get the entire string of words (space separated)
-  fgets(ptr_buffer, WORDS_QUANTITY * WORD_LENGTH, stdin);
+  if (fgets(ptr_buffer, WORDS_QUANTITY * WORD_LENGTH, stdin) == NULL) {
+    puts("Error(get_input_data() function): empty input string");
+    clean_up(&ptr_buffer);
+    return -1;
+  }
 
   // remove last '\n' in the str
   remove_last_word_n(ptr_buffer);
@@ -168,7 +180,7 @@ int get_input_data(WORDS_ARR arr, size_t arr_size, char separator[]) {
   count = break_string_into_words(arr, ptr_buffer, separator, WORD_LENGTH);
 
   // clean up
-  clean_up(ptr_buffer);
+  clean_up(&ptr_buffer);
 
   return count;
 }
