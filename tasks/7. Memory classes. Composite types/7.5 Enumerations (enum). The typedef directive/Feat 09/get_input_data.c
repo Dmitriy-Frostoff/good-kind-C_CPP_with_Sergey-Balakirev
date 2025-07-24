@@ -37,9 +37,9 @@ static void remove_last_word_n(char *str) {
  *  @note ! Impure function! Modifies outer @link{ptr} !
  *  @note ! Only for allocated memory area pointers !
  *  @note ! free() and makes NULL outer @link{ptr} !
- *  @note free() deals with @type{void *} no need to type narrowing
+ *  @note free() deals with @type{void *}
  *
- *  @param {char **} ptr - pointer to the allocated memory area
+ *  @param {void **} ptr - pointer to the allocated memory area
  *    @note !!!under the hood pointer to the pointer is used!!! No other way!
  *      if to set pointer like @type{void *} (i.e. clean_up(pointer))
  *      @link{clean_up} function will modify only local copy of @link{ptr}
@@ -47,16 +47,19 @@ static void remove_last_word_n(char *str) {
  *  @example
  *    char *ptr = (char *)calloc(10, sizeof(char));
  *
- *    clean_up(&ptr) => void
+ *    ** (void **) ? => narrowing any pointer type to @type{void **}
+ *    clean_up((void **)&ptr) => void
  *    ptr{NULL}
  *
  */
-static void clean_up(char **ptr) {
+static void clean_up(void **ptr) {
   // clean up
   // @note free() deals with void* so (char *) before @link{ptr} is useless
   // e.g. free((char *)ptr) is useless
-  free(*ptr);
-  *ptr = NULL;
+  if (*ptr != NULL) {
+    free(*ptr);
+    *ptr = NULL;
+  }
 }
 
 /**
@@ -141,6 +144,7 @@ static int break_string_into_words(WORDS_ARR arr, char *ptr_string,
  *    (means that every ',' or ';' will be assumed as separator)
  *
  *  @return {int} - qunatity of got words after separation
+ *  @return {-1} - if one of the below cases happened
  *  @throw if process of memory allocation has failed
  *  @throw if empty string was produced (or something went wrong at INPUT: data)
  *
@@ -169,7 +173,7 @@ int get_input_data(WORDS_ARR arr, size_t arr_size, char separator[]) {
   // get the entire string of words (space separated)
   if (fgets(ptr_buffer, WORDS_QUANTITY * WORD_LENGTH, stdin) == NULL) {
     puts("Error(get_input_data() function): empty input string");
-    clean_up(&ptr_buffer);
+    clean_up((void **)&ptr_buffer);
     return -1;
   }
 
@@ -180,7 +184,7 @@ int get_input_data(WORDS_ARR arr, size_t arr_size, char separator[]) {
   count = break_string_into_words(arr, ptr_buffer, separator, WORD_LENGTH);
 
   // clean up
-  clean_up(&ptr_buffer);
+  clean_up((void **)&ptr_buffer);
 
   return count;
 }
