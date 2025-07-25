@@ -1,12 +1,15 @@
 #include "./utils.h"
 
 /**
- *  @brief Get the input data from the INPUT:
+ *  @brief Get the input data from the INPUT: and assign it to the three
+ *  variables
  *
  *  @note ! Impure function !
  *  - Mutates the outer @link{variable_1}, @link{variable_2}, @link{variable_3}
  *
- *  @param {int *} variable - variable to assign read value
+ *  @param {short *} variable_1 - variable to assign read value
+ *  @param {short *} variable_2 - variable to assign read value
+ *  @param {short *} variable_3 - variable to assign read value
  *
  *  @return {0} - everything OK
  *  @return {-1} - problems via data reading from the INPUT:
@@ -34,7 +37,8 @@
  */
 int get_input_data(short *variable_1, short *variable_2, short *variable_3) {
   if (scanf("%hd %hd %hd", variable_1, variable_2, variable_3) != 3) {
-    puts("Error: empty input");
+    puts("Error(get_input_data function): expected three space separated "
+         "integers of type short");
     return -1;
   }
 
