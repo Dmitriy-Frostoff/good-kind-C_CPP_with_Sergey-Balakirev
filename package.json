@@ -44,14 +44,14 @@
   },
   "homepage": "https://github.com/Dmitriy-Frostoff/good-kind-C_CPP_with_Sergey-Balakirev#readme",
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.2",
     "eslint-plugin-import": "^2.32.0",
     "execa": "^9.6.1",
     "husky": "^9.1.7",
-    "prettier": "^3.8.1"
+    "prettier": "^3.9.0"
   }
 }
