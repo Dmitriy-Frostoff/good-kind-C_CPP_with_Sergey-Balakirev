@@ -111,3 +111,5 @@ CMakeCache.txt
 
 # C/C++ `build` folder ignore
 build/*
+**/build/
+**/bin/
